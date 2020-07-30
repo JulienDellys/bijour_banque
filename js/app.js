@@ -17,18 +17,18 @@ let credit = [
 
 document.getElementById("totalDebit").innerHTML = `${calculDepense(debit)} €`;
 document.getElementById("totalCredit").innerHTML = `${calculDepense(credit)} €`;
-document.getElementById("totalDebitPercent").innerHTML = `${100 - (calculPourcentage(calculDepense(credit) - calculDepense(debit)))} €`;
+document.getElementById("totalDebitPercent").innerHTML = `${100 - (calculPourcentage(calculDepense(credit) - calculDepense(debit))).toFixed(2)} €`;
 
 
 document.getElementById("debit").innerHTML = 
         `<li>
             <span class="intitule">${debit[0][0]}</span>
             <span class="montant txt-color-red">${debit[0][1]} €</span>
-            <span class="percent txt-color-red">${calculPourcentage(debit[0][1])}%</span>
+            <span class="percent txt-color-red">${calculPourcentage(debit[0][1]).toFixed(2)}%</span>
         </li><li>
             <span class="intitule">${debit[1][0]}</span>
             <span class="montant txt-color-red">${debit[1][1]} €</span>
-            <span class="percent txt-color-red">${calculPourcentage(debit[1][1])}%</span>
+            <span class="percent txt-color-red">${calculPourcentage(debit[1][1]).toFixed(2)}%</span>
         </li>`;
 
 document.getElementById("btn").addEventListener("click", function(event){
@@ -52,7 +52,7 @@ function rajouter(){
         `<li>
             <span class="intitule">${intitule}</span>
             <span class="montant txt-color-red">${montant} €</span>
-            <span class="percent txt-color-red">${calculPourcentage(montant)}%</span>
+            <span class="percent txt-color-red">${calculPourcentage(montant).toFixed(2)}%</span>
         </li>`;
         debit.push([intitule, montant , 39.40]);
         document.getElementById("totalDebit").innerHTML = calculDepense(debit);
@@ -67,7 +67,7 @@ function rajouter(){
         document.getElementById("totalCredit").innerHTML = calculDepense(credit);
     }
     document.getElementById("total").innerHTML = `+ ${calculDepense(credit) - calculDepense(debit)} €`;
-    document.getElementById("totalDebitPercent").innerHTML = `${100 - (calculPourcentage(calculDepense(credit) - calculDepense(debit)))} €`;
+    document.getElementById("totalDebitPercent").innerHTML = `${100 - (calculPourcentage(calculDepense(credit) - calculDepense(debit))).toFixed(2)} €`;
     
 
 }
